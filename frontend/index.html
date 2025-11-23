@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI dCDT Analyzer (Demo)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <h1>🧠 AI dCDT System</h1>
+                <span class="badge-pro">Prototype v1.0</span>
+            </div>
+            <p>ระบบประเมินภาวะรู้คิดอัตโนมัติด้วยแบบทดสอบการวาดนาฬิกาดิจิทัล</p>
+        </header>
+
+        <main>
+            <div class="instruction-card">
+                <h3>คำสั่ง (Instruction)</h3>
+                <p>"กรุณาวาดภาพนาฬิกา โดยใส่ตัวเลขให้ครบ และตั้งเวลาเป็น <strong>11 นาฬิกา 10 นาที</strong>"</p>
+            </div>
+
+            <div class="canvas-wrapper">
+                <canvas id="drawing-canvas" width="600" height="500"></canvas>
+                <div id="loadingOverlay" class="loading-overlay hidden">
+                    <div class="spinner"></div>
+                    <p>กำลังวิเคราะห์ด้วย AI...</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="clear-btn" class="btn btn-outline">
+                    🗑️ ล้างกระดาน
+                </button>
+                <button id="analyze-btn" class="btn btn-primary">
+                    🔍 วิเคราะห์ผล (Analyze)
+                </button>
+            </div>
+
+            <div id="results" class="results-section hidden">
+                <div class="divider"></div>
+                <h2>📊 ผลการวิเคราะห์ (Analysis Report)</h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card ai-card">
+                        <div class="card-header">
+                            <span class="icon">🤖</span> Image Analysis
+                        </div>
+                        <div class="card-body">
+                            <div class="stat-item">
+                                <span class="label">ผลทำนาย:</span>
+                                <span class="value highlight-red" id="res-prediction">...</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">ความมั่นใจ:</span>
+                                <span class="value" id="res-confidence">...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card process-card">
+                        <div class="card-header">
+                            <span class="icon">⏱️</span> Process Analysis
+                        </div>
+                        <div class="card-body">
+                            <div class="stat-item">
+                                <span class="label">เวลารวม (TCT):</span>
+                                <span class="value" id="res-tct">...</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">เวลาคิด (% Think):</span>
+                                <span class="value" id="res-think">...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insights-box">
+                    <h4>💡 ข้อสังเกตเชิงคลินิก (Clinical Insights)</h4>
+                    <ul id="res-insights">
+                        </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Demo for Senior Project Presentation • Computer Science, TU</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
