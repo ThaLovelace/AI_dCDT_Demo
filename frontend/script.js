@@ -59,7 +59,7 @@ document.getElementById('analyze-btn').addEventListener('click', async function(
 
     try {
         // C. ส่ง Request ไปยัง Flask (Localhost)
-        const response = await fetch('http://127.0.0.1:5000/analyze', {
+        const response = await fetch('https://ai-dcdt-demo.onrender.com/analyze', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json' 
